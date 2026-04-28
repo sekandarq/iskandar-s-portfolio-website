@@ -70,7 +70,7 @@ export function TerminalBento() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="glass-card rounded-xl overflow-hidden"
+      className="glass-card rounded-xl overflow-hidden animate-float glow-pulse"
     >
       {/* Terminal Header */}
       <div className="flex items-center gap-2 px-4 py-3 bg-[#1A1A1A] border-b border-[rgba(255,255,255,0.1)]">

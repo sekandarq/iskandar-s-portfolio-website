@@ -14,10 +14,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center py-16 sm:py-20 lg:py-24 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute inset-0 bg-radial-gradient" />
-      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Content - 7 columns */}

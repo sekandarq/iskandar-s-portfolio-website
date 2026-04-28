@@ -102,7 +102,7 @@ export function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+              className="glass-card rounded-xl p-6 shimmer-border card-lift"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-5">

@@ -192,7 +192,41 @@ This is a **single-page portfolio** with smooth scroll navigation:
 
 ---
 
-## G. Features & Technical Requirements
+## G. Visual Enhancements (Added)
+
+### Dynamic Background System
+
+| Component | Description |
+|-----------|-------------|
+| **Animated Grid** | Canvas-drawn grid with subtle wave motion, pulsing green glow at intersections |
+| **Radial Glow Spots** | Three floating blurred orbs (green/cyan) with scale/opacity animations |
+| **Noise Texture** | Subtle grain overlay for depth and premium feel |
+| **Vignette** | Edge darkening to focus attention on content |
+
+### Interactive Card Effects
+
+| Effect | Implementation |
+|--------|----------------|
+| **3D Tilt** | `TiltCard` component with mouse-tracking rotation (8deg max) |
+| **Shimmer Border** | CSS gradient animation on hover (3s cycle) |
+| **Card Lift** | translateY(-4px) with enhanced shadow on hover |
+| **Glow Follow** | Radial gradient follows cursor position |
+| **Gradient Border** | Rotating conic gradient border animation |
+
+### Animation Classes (globals.css)
+
+```css
+.animate-float      /* 6s vertical float */
+.glow-pulse         /* 3s green glow pulse */
+.shimmer-border     /* Hover shimmer effect */
+.card-lift          /* Hover lift + shadow */
+.gradient-border    /* Static gradient border */
+.perspective-1000   /* 3D perspective container */
+```
+
+---
+
+## H. Features & Technical Requirements
 
 ### Core Features
 
@@ -281,9 +315,8 @@ This is a **single-page portfolio** with smooth scroll navigation:
 │
 ├── ui/                         # Existing shadcn components
 │
-└── shared/
-    ├── section-header.tsx      # Reusable section titles
-    └── glass-card.tsx          # Glassmorphism wrapper
+├── animated-background.tsx   # Canvas grid + radial glows
+└── tilt-card.tsx             # 3D tilt hover effect
 │
 /public
 ├── images/
@@ -316,11 +349,26 @@ This is a **single-page portfolio** with smooth scroll navigation:
 13. Add certifications section
 14. Create contact-section
 
-### Phase 4: Polish
-15. Add smooth scroll behavior
-16. Implement hover animations
-17. Mobile responsiveness testing
-18. Background dynamic effect (subtle gradient/particles)
+### Phase 4: Visual Enhancements (IMPLEMENTED)
+15. **Animated Background System**
+    - Canvas-based animated grid with subtle wave motion
+    - Pulsing glow points at grid intersections
+    - Three animated radial glow spots (green/cyan)
+    - Noise texture overlay for depth
+    - Vignette effect for focus
+16. **3D Card Tilt Effects**
+    - Mouse-tracking 3D perspective rotation
+    - Animated gradient border on hover
+    - Radial glow following cursor position
+17. **Card Enhancements**
+    - Shimmer border animation on hover
+    - Card lift effect with enhanced shadows
+    - Gradient border styling
+18. **Terminal Enhancements**
+    - Floating animation (6s cycle)
+    - Glow pulse effect (green shadow)
+19. Smooth scroll behavior
+20. Mobile responsiveness
 
 ---
 

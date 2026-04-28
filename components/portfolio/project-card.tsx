@@ -5,6 +5,7 @@ import { ExternalLink, Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { TiltCard } from "./tilt-card"
 
 export interface Project {
   title: string
@@ -28,8 +29,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300"
+      className="perspective-1000"
     >
+    <TiltCard className="group glass-card rounded-xl overflow-hidden shimmer-border">
       {/* Project Image */}
       <div className="relative h-48 sm:h-56 overflow-hidden bg-secondary">
         <Image
@@ -101,6 +103,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
       </div>
+    </TiltCard>
     </motion.div>
   )
 }

@@ -4,16 +4,20 @@ import { SkillsSection } from "@/components/portfolio/skills-section"
 import { TimelineSection } from "@/components/portfolio/timeline-section"
 import { CertificationsSection } from "@/components/portfolio/certifications-section"
 import { ContactSection } from "@/components/portfolio/contact-section"
+import { AnimatedBackground } from "@/components/portfolio/animated-background"
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen bg-background">
-      <HeroSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <TimelineSection />
-      <CertificationsSection />
-      <ContactSection />
+    <main className="min-h-screen bg-background relative">
+      <AnimatedBackground />
+      <div className="relative z-10">
+        <HeroSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <TimelineSection />
+        <CertificationsSection />
+        <ContactSection />
+      </div>
     </main>
   )
 }
