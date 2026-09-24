@@ -1,19 +1,22 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { 
-  Code2, 
-  Server, 
-  Brain, 
-  Wrench,
-  Database,
-  Globe,
-  Cpu,
-  GitBranch,
+import {
+  Bot,
   Cloud,
-  Terminal,
+  Code2,
+  Database,
+  Figma,
+  GitBranch,
+  Globe,
   Layers,
-  Zap
+  LayoutPanelTop,
+  Palette,
+  Server,
+  Terminal,
+  TestTubeDiagonal,
+  Wrench,
+  Zap,
 } from "lucide-react"
 
 interface Skill {
@@ -23,106 +26,145 @@ interface Skill {
 
 interface SkillCategory {
   title: string
-  icon: React.ReactNode
+  accent: string
   skills: Skill[]
 }
 
 const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
-    icon: <Globe className="w-5 h-5" />,
+    accent: "Building interfaces",
     skills: [
-      { name: "React", icon: <Code2 className="w-4 h-4" /> },
-      { name: "Next.js", icon: <Layers className="w-4 h-4" /> },
-      { name: "TypeScript", icon: <Code2 className="w-4 h-4" /> },
-      { name: "Tailwind CSS", icon: <Zap className="w-4 h-4" /> },
+      { name: "React.js", icon: <Code2 className="h-4 w-4" /> },
+      { name: "Next.js", icon: <Layers className="h-4 w-4" /> },
+      { name: "TypeScript, JavaScript", icon: <Code2 className="h-4 w-4" /> },
+      { name: "HTML", icon: <Globe className="h-4 w-4" /> },
+      { name: "CSS, Tailwind CSS", icon: <Palette className="h-4 w-4" /> },
+    ],
+  },
+  {
+    title: "AI / Automation",
+    accent: "Practical AI workflows",
+    skills: [
+      { name: "AI Integration", icon: <Bot className="h-4 w-4" /> },
+      { name: "OpenAI API", icon: <Zap className="h-4 w-4" /> },
+      { name: "Google Cloud API", icon: <Cloud className="h-4 w-4" /> },
+      { name: "n8n", icon: <LayoutPanelTop className="h-4 w-4" /> },
+      { name: "Prompt Flows", icon: <Bot className="h-4 w-4" /> },
+      { name: "AI Features", icon: <SparkPill /> },
     ],
   },
   {
     title: "Backend",
-    icon: <Server className="w-5 h-5" />,
+    accent: "Supporting product logic",
     skills: [
-      { name: "Node.js", icon: <Terminal className="w-4 h-4" /> },
-      { name: "Python", icon: <Code2 className="w-4 h-4" /> },
-      { name: "FastAPI", icon: <Zap className="w-4 h-4" /> },
-      { name: "PostgreSQL", icon: <Database className="w-4 h-4" /> },
+      { name: "Node.js", icon: <Server className="h-4 w-4" /> },
+      { name: "REST API", icon: <Zap className="h-4 w-4" /> },
+      { name: "FastAPI", icon: <Server className="h-4 w-4" /> },
+      { name: "Python", icon: <Code2 className="h-4 w-4" /> },
+      { name: "Java", icon: <Code2 className="h-4 w-4" /> },
     ],
   },
   {
-    title: "AI / ML",
-    icon: <Brain className="w-5 h-5" />,
+    title: "Database",
+    accent: "Data foundations",
     skills: [
-      { name: "OpenAI", icon: <Cpu className="w-4 h-4" /> },
-      { name: "LangChain", icon: <Layers className="w-4 h-4" /> },
-      { name: "TensorFlow", icon: <Brain className="w-4 h-4" /> },
-      { name: "Computer Vision", icon: <Zap className="w-4 h-4" /> },
+      { name: "PostgreSQL", icon: <Database className="h-4 w-4" /> },
+      { name: "MySQL", icon: <Database className="h-4 w-4" /> },
+    ],
+  },
+  {
+    title: "Cloud / DevOps",
+    accent: "Shipping and deployment",
+    skills: [
+      { name: "AWS", icon: <Cloud className="h-4 w-4" /> },
+      { name: "Docker", icon: <Layers className="h-4 w-4" /> },
+      { name: "CI/CD", icon: <GitBranch className="h-4 w-4" /> },
+      { name: "Vercel", icon: <Cloud className="h-4 w-4" /> },
+      { name: "GitHub", icon: <GitBranch className="h-4 w-4" /> },
     ],
   },
   {
     title: "Tools",
-    icon: <Wrench className="w-5 h-5" />,
+    accent: "Day-to-day workflow",
     skills: [
-      { name: "Git", icon: <GitBranch className="w-4 h-4" /> },
-      { name: "Docker", icon: <Layers className="w-4 h-4" /> },
-      { name: "AWS", icon: <Cloud className="w-4 h-4" /> },
-      { name: "CI/CD", icon: <Zap className="w-4 h-4" /> },
+      { name: "Git", icon: <GitBranch className="h-4 w-4" /> },
+      { name: "Postman", icon: <TestTubeDiagonal className="h-4 w-4" /> },
+      { name: "VS Code", icon: <Terminal className="h-4 w-4" /> },
+      { name: "Debugging", icon: <Wrench className="h-4 w-4" /> },
+      { name: "Figma", icon: <Figma className="h-4 w-4" /> },
     ],
   },
 ]
 
+function SparkPill() {
+  return <Zap className="h-4 w-4" />
+}
+
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 sm:py-28 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+    <section
+      id="skills"
+      className="section-surface relative py-20 scroll-mt-32 sm:py-28 lg:scroll-mt-36"
+    >
+      <div className="absolute inset-0 bg-grid opacity-30" />
+      <div className="absolute inset-0 bg-radial-gradient opacity-60" />
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16"
+          className="mx-auto mb-12 max-w-3xl text-center sm:mb-16"
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-mono text-primary border border-primary/30 rounded-full bg-primary/10">
+          <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-mono text-primary">
             Technical Stack
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Core Competencies
+          <h2 className="mb-4 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+            Tools I Build With Most
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Battle-tested technologies powering production systems.
+          <p className="mx-auto max-w-2xl text-muted-foreground">
+            A more visual view of the technologies I use across{" "}
+            <span className="text-gradient">frontend</span>,{" "}
+            <span className="text-gradient">backend</span>, 
+            <span className="text-gradient"> cloud</span>, 
+            and practical{" "}
+            <span className="text-gradient">AI integration</span>.
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="glass-card rounded-xl p-6 shimmer-border card-lift"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: categoryIndex * 0.06 }}
+              className="min-w-0"
             >
-              {/* Category Header */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                  {category.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">
+              <div className="mb-3 px-1">
+                <p className="text-xs font-mono uppercase tracking-[0.22em] text-primary/90">
                   {category.title}
-                </h3>
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {category.accent}
+                </p>
               </div>
 
-              {/* Skills List */}
               <div className="space-y-3">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-glass transition-colors"
+                    className="group flex items-center gap-3 rounded-[22px] border border-primary/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.025))] px-4 py-3 shadow-[0_10px_24px_rgba(0,0,0,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-[linear-gradient(180deg,rgba(0,255,0,0.08),rgba(255,255,255,0.04))] hover:shadow-[0_16px_28px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,255,0,0.08)]"
                   >
-                    <span className="text-muted-foreground">{skill.icon}</span>
-                    <span className="text-sm text-foreground">{skill.name}</span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border border-primary/12 bg-background/70 text-primary transition-colors duration-200 group-hover:border-primary/30 group-hover:bg-primary/10">
+                      {skill.icon}
+                    </span>
+                    <span className="text-sm font-medium text-foreground/95">
+                      {skill.name}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -14,14 +14,26 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Backend Engineer & AI Developer | Portfolio',
-  description: 'Engineering scalable backends and AI-driven experiences. Expertise in TypeScript, Node.js, and OpenAI integrations.',
-  keywords: ['Backend Developer', 'AI Engineer', 'TypeScript', 'Node.js', 'OpenAI', 'Full Stack'],
-  authors: [{ name: 'Developer' }],
+  title: 'Aliff Iskandar | Full Stack & AI Developer Enthusiast',
+  description: 'Full Stack and AI developer portfolio for Aliff Iskandar, a fresh graduate building responsive and accessible web interfaces with React, Next.js, and TypeScript and AI automation tools.',
+  keywords: ['Aliff Iskandar', 'Full Stack Developer', 'Backend Developer', 'Frontend Developer', 'Fresh Graduate', 'React', 'Next.js', 'TypeScript', 'Portfolio', 'Tailwind CSS', 'AI Automation', 'AI Integration', 'Web Development', 'Software Engineer', 'Open to Work'],
+  authors: [{ name: 'Aliff Iskandar' }],
   openGraph: {
-    title: 'Backend Engineer & AI Developer | Portfolio',
-    description: 'Engineering scalable backends and AI-driven experiences.',
+    title: 'Aliff Iskandar | Full Stack & AI Developer Enthusiast',
+    description: 'Fresh graduate full stack and AI developer building responsive web applications with React, Next.js, and TypeScript and AI automation tools.',
     type: 'website',
+    images: [
+      {
+        url: '/logo.jpg',
+        alt: 'Aliff Iskandar portfolio preview',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+      title: 'Aliff Iskandar | Full Stack & AI Developer Enthusiast',
+    description: 'Fresh graduate full stack and AI developer building responsive web applications with React, Next.js, and TypeScript and AI automation tools.',
+    images: ['/logo.jpg'],
   },
 }
 

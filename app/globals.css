@@ -5,20 +5,20 @@
 
 :root {
   /* Deep Carbon Theme - Dark by default */
-  --background: #0A0A0A;
+  --background: #07110B;
   --foreground: #FAFAFA;
-  --card: rgba(255, 255, 255, 0.03);
+  --card: rgba(255, 255, 255, 0.04);
   --card-foreground: #FAFAFA;
-  --popover: #0A0A0A;
+  --popover: #07110B;
   --popover-foreground: #FAFAFA;
   --primary: #00FF00;
-  --primary-foreground: #0A0A0A;
-  --secondary: #1A1A1A;
+  --primary-foreground: #07110B;
+  --secondary: #101A14;
   --secondary-foreground: #FAFAFA;
-  --muted: #1A1A1A;
-  --muted-foreground: #71717A;
+  --muted: #0E1712;
+  --muted-foreground: #8B948E;
   --accent: #00FF00;
-  --accent-foreground: #0A0A0A;
+  --accent-foreground: #07110B;
   --destructive: #EF4444;
   --destructive-foreground: #FAFAFA;
   --border: rgba(255, 255, 255, 0.1);
@@ -35,8 +35,8 @@
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glow: rgba(0, 255, 0, 0.4);
-  --terminal-bg: rgba(0, 0, 0, 0.8);
-  --terminal-header: #1A1A1A;
+  --terminal-bg: rgba(3, 10, 6, 0.82);
+  --terminal-header: #101A14;
   --led-green: #00FF00;
   --led-glow: rgba(0, 255, 0, 0.6);
 }
@@ -86,6 +86,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
   }
   body {
     @apply bg-background text-foreground;
@@ -265,4 +268,34 @@
 .card-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.section-surface {
+  position: relative;
+}
+
+.section-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at top left, rgba(0, 255, 140, 0.045), transparent 34%);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

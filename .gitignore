@@ -14,3 +14,7 @@ next.user-config.*
 node_modules
 .next/
 .DS_Store
+
+# Local implementation plan
+IMPLEMENTATION_FRONTEND_UPDATE.md
+IMPLEMENTATION_IMPROVEMENTS_FRONTEND.md

@@ -9,26 +9,26 @@ const bootSequence = [
   { text: "", delay: 600 },
   { text: "$ loading skill_matrix...", delay: 800 },
   { text: "", delay: 1000 },
-  { text: "├── Web Development", delay: 1200 },
+  { text: "├── Frontend Focus", delay: 1200 },
   { text: "│   ├── React / Next.js", delay: 1400 },
-  { text: "│   ├── TypeScript", delay: 1600 },
-  { text: "│   └── Tailwind CSS", delay: 1800 },
+  { text: "│   ├── TypeScript, Javascript, Python", delay: 1600 },
+  { text: "│   └── Tailwind CSS, Framer Motion", delay: 1800 },
   { text: "│", delay: 2000 },
-  { text: "├── Backend Integration", delay: 2200 },
-  { text: "│   ├── Node.js / Express", delay: 2400 },
-  { text: "│   ├── PostgreSQL / MongoDB", delay: 2600 },
-  { text: "│   └── REST / GraphQL APIs", delay: 2800 },
+  { text: "├── Backend Focus", delay: 2200 },
+  { text: "│   ├── Node.js", delay: 2400 },
+  { text: "│   ├── Postgres, MongoDB", delay: 2600 },
+  { text: "│   └── REST API, Docker, Fast API", delay: 2800 },
   { text: "│", delay: 3000 },
-  { text: "└── AI Automation", delay: 3200 },
-  { text: "    ├── OpenAI / LangChain", delay: 3400 },
-  { text: "    ├── Python / FastAPI", delay: 3600 },
-  { text: "    └── ML Pipelines", delay: 3800 },
+  { text: "├── AI Automation Focus", delay: 3200 },
+  { text: "│   ├── OpenAI & Google Cloud API, Puter.js", delay: 3400 },
+  { text: "│   ├── n8n, Airflow", delay: 3600 },
+  { text: "│   └── Cloud Deployment, Vercel", delay: 3800 },
   { text: "", delay: 4000 },
   { text: "[SUCCESS] All systems operational", delay: 4200 },
   { text: "$ status: ready_for_deployment_", delay: 4600 },
 ]
 
-const LOOP_DELAY = 6000
+const LOOP_DELAY = 6400
 
 export function TerminalBento() {
   const [visibleLines, setVisibleLines] = useState<number>(0)
@@ -70,7 +70,7 @@ export function TerminalBento() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="glass-card rounded-xl overflow-hidden animate-float glow-pulse"
+      className="glass-card rounded-xl overflow-hidden animate-float"
     >
       {/* Terminal Header */}
       <div className="flex items-center gap-2 px-4 py-3 bg-[#1A1A1A] border-b border-[rgba(255,255,255,0.1)]">

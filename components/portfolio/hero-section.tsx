@@ -1,103 +1,130 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Linkedin, Mail } from "lucide-react"
 import { TerminalBento } from "./terminal-bento"
 import { StatusBar } from "./status-bar"
-import { SplitButton } from "./split-button"
 import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 
 export function HeroSection() {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-  }
+  };
 
+  const roles = ["Web Developer", "AI Integrator", "Problem Solver"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 2500); // Change role every 2.5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+  
   return (
-    <section className="relative min-h-screen flex items-center py-16 sm:py-20 lg:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Content - 7 columns */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-            {/* Badge */}
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden py-16 scroll-mt-32 sm:py-20 lg:py-24 lg:scroll-mt-36"
+    >
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+          <div className="space-y-6 lg:col-span-7 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Available for new projects
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-mono text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse" />
+                Fresh Graduate | Open to Frontend, Backend & AI Roles
               </span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance"
+              className="text-3xl font-bold leading-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
             >
-              Engineering{" "}
-              <span className="text-gradient">Scalable Backends</span>
-              {" "}&{" "}
-              <span className="text-gradient">AI-Driven</span>
-              {" "}Experiences.
+              Building{" "}
+              <span className="text-gradient">Modern Web Apps</span>
+              {" "}with{" "}
+              <span className="text-gradient">AI-Powered Experiences</span>.
             </motion.h1>
 
-            {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
+              className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Full-stack developer specializing in building robust backend systems, 
-              API integrations, and intelligent automation workflows that scale.
+              I'm{" "}
+              <span className="font-semibold text-foreground">Aliff Iskandar</span>, a passionate{" "} 
+              <span key={currentRoleIndex} className="inline-block font-semibold bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent animate-in fade-in slide-in-from-top-2 duration-500">
+              {roles[currentRoleIndex]}
+              </span>
+              <br></br>dedicated on building <span className="font-semibold text-gradient">high-performance, user-centric web applications</span> with practical
+              <span className="font-semibold text-gradient"> AI-powered features</span>
             </motion.p>
 
-            {/* Status Bar */}
             <StatusBar />
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
-              <SplitButton />
-              
               <Button
-                variant="outline"
                 onClick={scrollToProjects}
-                className="group border-glass-border hover:bg-glass hover:border-primary/30 transition-all"
+                className="group h-[52px] w-full rounded-xl bg-primary px-4 text-primary-foreground shadow-[0_0_24px_rgba(0,255,0,0.18)] transition-all hover:bg-primary/90 sm:w-auto"
               >
-                View System Architecture
-                <ChevronDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
+                View Projects
+                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               </Button>
+
+              <div className="flex w-full items-center gap-3 rounded-xl border border-glass-border bg-secondary/20 px-4 py-3 sm:w-auto">
+                <span className="text-sm font-mono text-muted-foreground">Let&apos;s <span className="text-red-500">Connect</span></span>
+                <a
+                  href="https://www.linkedin.com/in/mohamad-aliff-iskandar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-primary/20 bg-primary/10 p-2 text-primary transition-all hover:border-primary/40 hover:bg-primary hover:text-primary-foreground"
+                  aria-label="Connect on LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="mailto:aliff.iskandr02@gmail.com"
+                  className="rounded-full border border-primary/20 bg-primary/10 p-2 text-primary transition-all hover:border-primary/40 hover:bg-primary hover:text-primary-foreground"
+                  aria-label="Send an email"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
+              </div>
             </motion.div>
           </div>
 
-          {/* Right Content - 5 columns */}
           <div className="lg:col-span-5">
             <TerminalBento />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex"
       >
-        <span className="text-xs text-muted-foreground font-mono">scroll</span>
+        <span className="text-xs font-mono text-muted-foreground">scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+          <ChevronDown className="h-5 w-5 text-muted-foreground" />
         </motion.div>
       </motion.div>
     </section>

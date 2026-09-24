@@ -1,65 +1,77 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Briefcase, GraduationCap } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface TimelineItem {
-  type: "work" | "education"
-  title: string
-  organization: string
-  period: string
-  description: string
-  achievements: string[]
-  technologies?: string[]
+  type: "work" | "education";
+  title: string;
+  organization: string;
+  period: string;
+  description: string;
+  achievements: string[];
+  technologies?: string[];
 }
 
 const timelineItems: TimelineItem[] = [
   {
     type: "work",
-    title: "Senior Backend Engineer",
-    organization: "Tech Company",
-    period: "2022 - Present",
-    description: "Leading backend architecture and AI integration initiatives.",
+    title: "Student President",
+    organization: "MARA Scholarship Students Association, Kyung Hee University",
+    period: "2022 - 2026",
+    description:
+      "Represented student concerns and coordinated communication while strengthening leadership, collaboration, and problem-solving skills.",
     achievements: [
-      "Reduced API latency by 60% through optimization",
-      "Implemented AI-powered automation saving 200+ hours/month",
-      "Architected microservices handling 1M+ requests/day",
+      "Represented and coordinated matters involving Malaysian MARA scholarship students at Kyung Hee University.",
+      "Worked with MARA officers in Malaysia and South Korea on student welfare and administrative matters.",
+      "Built leadership, communication, and coordination experience that supports team-based product work.",
     ],
-    technologies: ["Node.js", "Python", "OpenAI", "AWS"],
-  },
-  {
-    type: "work",
-    title: "Full-Stack Developer",
-    organization: "Startup Inc",
-    period: "2020 - 2022",
-    description: "Built and scaled core product features from ground up.",
-    achievements: [
-      "Developed face recognition system with 99.2% accuracy",
-      "Built real-time dashboard processing 10M+ events/day",
-      "Led migration to TypeScript, reducing bugs by 40%",
-    ],
-    technologies: ["React", "TypeScript", "PostgreSQL", "Docker"],
+    technologies: ["Leadership", "Communication", "Coordination"],
   },
   {
     type: "education",
-    title: "B.S. Computer Science",
-    organization: "University",
-    period: "2016 - 2020",
-    description: "Focus on algorithms, distributed systems, and machine learning.",
+    title: "Bachelor's Degree in Computer Engineering",
+    organization: "Kyung Hee University Global Campus, South Korea",
+    period: "Feb 2022 - Feb 2026",
+    description:
+      "Computer engineering studies with strong exposure to frontend development, UI/UX, backend systems, cloud services, and applied software engineering.",
     achievements: [
-      "GPA: 3.8/4.0",
-      "Dean's List all semesters",
-      "Senior thesis on neural network optimization",
+      "CGPA: 3.54",
+      "Relevant coursework includes Data Structures, UI/UX, Databases, Full Stack, Artificial Intelligence, and Cloud Computing.",
+      "Built a wider technical foundation while developing a stronger interest in frontend-focused product experiences.",
+    ],
+    technologies: [
+      "React.js",
+      "TypeScript",
+      "UI/UX",
+      "Databases",
+      "Cloud Computing",
     ],
   },
-]
+  {
+    type: "education",
+    title: "Foundation in Science and Technology",
+    organization: "University of Kuala Lumpur MIIT, Malaysia",
+    period: "Jul 2020 - Dec 2021",
+    description:
+      "Built a strong academic base in programming, mathematics, and object-oriented problem solving before entering degree studies.",
+    achievements: [
+      "CGPA: 3.92",
+      "Relevant coursework includes Object-Oriented Programming, Calculus 1, and Basic Programming.",
+      "Strengthened early foundations in coding, analytical thinking, and technical communication.",
+    ],
+  },
+];
 
 export function TimelineSection() {
   return (
-    <section id="experience" className="py-20 sm:py-28 relative">
+    <section
+      id="experience"
+      className="section-surface relative py-20 scroll-mt-32 sm:py-28 lg:scroll-mt-36"
+    >
       <div className="absolute inset-0 bg-grid opacity-30" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -70,13 +82,17 @@ export function TimelineSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="inline-block px-3 py-1 mb-4 text-xs font-mono text-primary border border-primary/30 rounded-full bg-primary/10">
-            Career Path
+            Experience and Education
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Experience & Education
+            Learning Journey and Leadership
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Professional journey building scalable systems and AI solutions.
+          <p className="mx-auto max-w-2xl text-muted-foreground">
+            A concise view of{" "}
+            <span className="text-gradient">
+              my academic and leadership experience
+            </span>{" "}
+            shaping my early-career path in becoming a full-stack developer.
           </p>
         </motion.div>
 
@@ -107,7 +123,7 @@ export function TimelineSection() {
                   </div>
 
                   {/* Content Card */}
-                  <div className="glass-card rounded-xl p-5 sm:p-6 hover:border-primary/30 transition-all duration-300">
+                  <div className="glass-card rounded-xl border border-white/6 p-5 transition-all duration-300 hover:border-primary/30 sm:p-6">
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                       <div>
@@ -124,14 +140,17 @@ export function TimelineSection() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <p className="mb-4 text-sm text-muted-foreground">
                       {item.description}
                     </p>
 
                     {/* Achievements */}
                     <ul className="space-y-2 mb-4">
                       {item.achievements.map((achievement) => (
-                        <li key={achievement} className="flex items-start gap-2 text-sm text-foreground">
+                        <li
+                          key={achievement}
+                          className="flex items-start gap-2 text-sm text-foreground"
+                        >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                           {achievement}
                         </li>
@@ -160,5 +179,5 @@ export function TimelineSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
